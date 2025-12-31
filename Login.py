@@ -3,7 +3,7 @@ import requests
 
 API_KEY = st.secrets["firebase_api_key"]
 
-st.title("Login")
+st.title("Login Page")
 
 username = st.text_input("Username")
 password = st.text_input("Password", type="password")
@@ -19,8 +19,9 @@ if st.button("Login"):
     })
 
     if res.status_code == 200:
-        st.session_state["user"] = username
         st.success("Login successful")
+        st.session_state["user"] = username
         st.experimental_rerun()
     else:
         st.error("Username ama Password khaldan")
+
